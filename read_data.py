@@ -8,6 +8,8 @@ ZZJ
 import h5py
 from scipy.io import loadmat
 import numpy as np
+import pandas as pd
+
 
 def read_train_data():
     f = h5py.File("./data/train.mat", "r")
@@ -35,3 +37,37 @@ def read_test_data():
    y = f['testdata']
    x = np.moveaxis(x, 1, -1)
    return x, y
+
+
+def read_label_annot():
+    label_annot = pd.DataFrame(columns=[
+        'index',
+        'cell',
+        'target',
+        'condition',
+        'category'
+        ])
+
+    def category_classifier(t):
+        if t.startswith(('H2', 'H3', 'H4')):
+            return 'Histone'
+        elif t=='DNase':
+            return 'DNase'
+        elif t.startswith('Pol'):
+            return 'Pol'
+        else:
+            return 'TF'
+
+    with open("./resources/label_names.txt", "r") as f:
+        i = 0
+        for line in f:
+            c, t, d = line.strip().split('|')
+            cat = category_classifier(t)
+            label_annot = label_annot.append(pd.Series({
+                'index':i,
+                'cell':c,
+                'target':t,
+                'condition':d,
+                'category': cat}), ignore_index=True)
+            i += 1
+    return label_annot

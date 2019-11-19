@@ -58,22 +58,3 @@ def build_and_load_weights():
         k_layer = layer_dict[k_lname]
         func(k_layer, th_w)
     return model
-
-
-def test_performance(model):
-    from sklearn.metrics import roc_auc_score, average_precision_score
-    from read_data import read_test_data
-    test_x, test_y = read_test_data()
-
-    test_pred = model.predict(test_x, batch_size=512, verbose=1)
-    evals = np.zeros((919, 2))
-    for i in range(919):
-        try:
-            auroc = roc_auc_score(y_true=test_y[:, i], y_score=test_pred[:, i])
-            aupr = average_precision_score(y_true=test_y[:, i], y_score=test_pred[:, i])
-            evals[i, :] = [auroc, aupr]
-        # only one class present
-        except ValueError:
-            evals[i, :] = np.nan
-
-

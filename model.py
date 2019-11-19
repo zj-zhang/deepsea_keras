@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from keras.models import Model
+from keras.models import load_model as keras_load_model
 from keras.layers import Dense, Dropout, Activation, Flatten, Conv1D, MaxPooling1D, Input, Lambda
 from keras import metrics
 
@@ -27,4 +28,30 @@ def build_model():
         optimizer="adam",
         loss="binary_crossentropy",
         metrics=["acc"])
+    return model
+
+
+def load_model():
+    model = keras_load_model('./data/deepsea_keras.h5')
+    model.summary()
+    return model
+
+
+def convert_to_multigpu(
+        vanilla_model,
+        gpus=4,
+        model_compile_dict=None,
+        **kwargs):
+    try:
+        from keras.utils import multi_gpu_model
+    except Exception as e:
+        raise Exception("Exception %s\nmulti gpu not supported in keras. check your version."%e)
+    model = multi_gpu_model(vanilla_model, gpus=gpus, **kwargs)
+    if model_compile_dict is None:
+        model_compile_dict = {
+            "optimizer": "adam",
+            "loss": "binary_crossentropy",
+            "metrics": ["acc"]
+        }
+    model.compile(**model_compile_dict)
     return model
