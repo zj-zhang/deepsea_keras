@@ -1,5 +1,5 @@
 # deepsea-keras
-Keras implementation of DeepSEA, orignal version published
+Keras implementation of DeepSEA, original version published
 in Nature Methods 2015 [here](https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3547/MediaObjects/41592_2015_BFnmeth3547_MOESM644_ESM.pdf).
 
 ## Setup
