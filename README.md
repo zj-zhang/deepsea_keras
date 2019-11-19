@@ -86,9 +86,9 @@ plot_auc(test_evals)
 ```
 The results should look like the following
 
-! [tf-auc](https://github.com/zj-zhang/deepsea-keras/raw/master/resources/TF.png)
-! [dnase-auc](https://github.com/zj-zhang/deepsea-keras/raw/master/resources/DNase.png)
+<img src="https://raw.githubusercontent.com/zj-zhang/deepsea-keras/master/resources/TF.png" width="300">
+<img src="https://raw.githubusercontent.com/zj-zhang/deepsea-keras/master/resources/DNase.png" width="300">
 
-! [pol-auc](https://github.com/zj-zhang/deepsea-keras/raw/master/resources/Pol.png)
-! [histone-auc](https://github.com/zj-zhang/deepsea-keras/raw/master/resources/Histone.png)
+<img src="https://raw.githubusercontent.com/zj-zhang/deepsea-keras/master/resources/Pol.png" width="300">
+<img src="https://raw.githubusercontent.com/zj-zhang/deepsea-keras/master/resources/Histone.png" width="300">
 
