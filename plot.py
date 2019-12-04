@@ -8,6 +8,7 @@ ZZJ, 11.18.2019
 from read_data import read_label_annot
 import matplotlib.pyplot as plt
 
+
 def plot_auc(evals):
     annot = read_label_annot()
     annot['auroc'] = evals['auroc']
