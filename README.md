@@ -50,8 +50,8 @@ route you took:
 from evaluate import val_performance
 import numpy as np
 val_evals = val_performance(model)
-print(np.nanmean(val_evals['auroc']))
-print(np.nanmean(val_evals['aupr']))
+print(np.nanmean(val_evals['auroc'])) # 0.937
+print(np.nanmean(val_evals['aupr']))  # 0.402
 ```
 
 Also we can evaluate the test-data performance. 
