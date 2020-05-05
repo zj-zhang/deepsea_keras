@@ -11,8 +11,9 @@ import numpy as np
 import pandas as pd
 
 
-def read_train_data():
-    f = h5py.File("./data/train.mat", "r")
+def read_train_data(fp=None):
+    fp = fp or "./data/train.mat"
+    f = h5py.File(fp, "r")
     print(list(f.keys()))
     y = f['traindata'].value
     x = f['trainxdata'].value
@@ -21,22 +22,24 @@ def read_train_data():
     return x, y
 
 
-def read_val_data():
-   f = loadmat("./data/valid.mat")
-   print(list(f.keys()))
-   x = f['validxdata']
-   y = f['validdata']
-   x = np.moveaxis(x, 1, -1)
-   return x, y
+def read_val_data(fp=None):
+    fp = fp or "./data/valid.mat"
+    f = loadmat(fp)
+    print(list(f.keys()))
+    x = f['validxdata']
+    y = f['validdata']
+    x = np.moveaxis(x, 1, -1)
+    return x, y
 
 
-def read_test_data():
-   f = loadmat("./data/test.mat")
-   print(list(f.keys()))
-   x = f['testxdata']
-   y = f['testdata']
-   x = np.moveaxis(x, 1, -1)
-   return x, y
+def read_test_data(fp=None):
+    fp = fp or "./data/test.mat"
+    f = loadmat(fp)
+    print(list(f.keys()))
+    x = f['testxdata']
+    y = f['testdata']
+    x = np.moveaxis(x, 1, -1)
+    return x, y
 
 
 def read_label_annot():

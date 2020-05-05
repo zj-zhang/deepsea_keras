@@ -1,5 +1,5 @@
-from model import build_model
-from read_data import read_train_data, read_val_data
+from .model import build_model
+from .read_data import read_train_data, read_val_data
 from keras.callbacks import ModelCheckpoint, EarlyStopping
 
 
