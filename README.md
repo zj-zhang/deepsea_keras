@@ -2,6 +2,9 @@
 Keras implementation of DeepSEA, original version published
 in Nature Methods 2015 [here](https://static-content.springer.com/esm/art%3A10.1038%2Fnmeth.3547/MediaObjects/41592_2015_BFnmeth3547_MOESM644_ESM.pdf).
 
+## Updates
+- May 6, 2020: wrap into a package for re-use (especially on reading data)
+
 ## Setup
 After cloned the Github repository, initialize a new 
 Anaconda environment using the ```conda_env.yml``` 
