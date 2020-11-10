@@ -42,7 +42,8 @@ def read_test_data(fp=None):
     return x, y
 
 
-def read_label_annot():
+def read_label_annot(fp=None):
+    fp = fp or './resources/label_naems.txt'
     label_annot = pd.DataFrame(columns=[
         'index',
         'cell',
@@ -61,7 +62,7 @@ def read_label_annot():
         else:
             return 'TF'
 
-    with open("./resources/label_names.txt", "r") as f:
+    with open(fp, "r") as f:
         i = 0
         for line in f:
             c, t, d = line.strip().split('|')
